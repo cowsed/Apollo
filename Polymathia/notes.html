@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Notes!</title>
+    <link rel="stylesheet" href="/static/notes.css">
+
+</head>
+
+<body>
+
+    <h1>Notes</h1>
+
+    {{range .}}
+    <div class="Note">
+
+        <form action="/notes">
+            <label for="NoteTitle">Title: </label>
+            <input type="text" id="NoteTitle" name="NoteTitle" value="{{.Title}}" readonly><br>
+
+            <label for="NoteBody">Body: </label>
+            <textarea type="text" id="NoteBody" name="NoteBody" rows=5 cols=50>{{.Body}}</textarea>
+            <br>
+
+            <input type="submit" value="Submit">
+        </form>
+        <button>Delete Note (Doesnt work)</button>
+    </div>
+    <br>
+    {{else}}
+    There are no notes
+    {{end}}
+</body>
+
+</html>
